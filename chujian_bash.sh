@@ -1,16 +1,11 @@
 #!/bin/bash
-add-apt-repository ppa:ubuntu-toolchain-r/test -y
-apt update
-apt install gcc-9 g++-9
-cd /usr/bin/ && unlink gcc
-cd /usr/bin/ && ln -s gcc-9 gcc
-cd /usr/bin/ && unlink g++
-cd /usr/bin/ && ln -s g++-9 g++
-gcc -v
-
-wget -c https://github.com/zhusha9527/nnzero9527/raw/main/chujian_train.o
-wget -c https://github.com/zhusha9527/nnzero9527/raw/main/chujian_date.o
-
-chmod 777 chujian_train.o
-chmod 777 chujian_date.o
-./chujian_train.o --user 'tianya' --password 'wutao12345' --lc0name 'chujian_date.o'
+cd /content
+rm -f GGnn_train
+rm -f GGnn
+wget -c https://github.com/leedavid/leela-chess-to-Chinese-Chess/raw/master/lc0/libstdc++.so.6 
+wget -c https://github.com/leedavid/leela-chess-to-Chinese-Chess/raw/master/lc0/GGnn_train
+wget -c https://github.com/leedavid/leela-chess-to-Chinese-Chess/raw/master/lc0/GGnn
+cp libstdc++.so.6 /usr/lib/x86_64-linux-gnu/
+chmod 777 GGnn_train
+chmod 777 GGnn
+./GGnn_train --user 'tianya' --password 'wutao12345'
